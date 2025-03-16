@@ -1745,7 +1745,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
                 />
 
                 <button type="button" onClick={() => remove(attrIndex)} className="text-red-500 px-10 hover:opacity-30">
-                  Xóa
+                  Delete
                 </button>
               </div>
 
@@ -1758,13 +1758,13 @@ function ProductForm({ initObjectData }: ProductFormProps) {
             onClick={() => append({ name: "", values: [""] })}
             className="bg-green-500 text-white px-3 py-2 hover:opacity-40"
           >
-            Thêm Thuộc Tính
+            Add variant
           </button>
 
           {/* DANH SÁCH BIẾN THỂ */}
           {variants.length > 0 && (
             <div className="mt-5">
-              <h2 className="text-lg font-bold">Danh Sách Biến Thể</h2>
+              <h2 className="text-lg font-bold">Product Variant List</h2>
               {variants?.map((variant, index) => {
                 return (
                   <div key={variant.id} className="flex items-center gap-2 mt-2">
@@ -1844,7 +1844,7 @@ const ValuesInput = ({ control, attrIndex, initData }: { control: any; attrIndex
               className="bg-red-500 hover:opacity-40 text-white px-2 py-1"
               onClick={() => remove(valueIndex)}
             >
-              Xóa
+              Delete
             </button>
           </div>
         );
@@ -1855,7 +1855,7 @@ const ValuesInput = ({ control, attrIndex, initData }: { control: any; attrIndex
         onClick={() => append("")}
         className="bg-blue-500 hover:opacity-40  text-white px-3 py-1 mt-2"
       >
-        Thêm Giá Trị
+        Add value
       </button>
     </div>
   );

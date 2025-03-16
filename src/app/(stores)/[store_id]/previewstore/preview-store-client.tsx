@@ -29,9 +29,9 @@ const formSchema = z.object({
   billboard_feature: z.array(z.string()).length(3, {
     message: "You must be upload 3 images.",
   }),
-  background_insurance: z.string().min(1, {
-    message: "You have to upload at least 1 image.",
-  }),
+  // background_insurance: z.string().min(1, {
+  //   message: "You have to upload at least 1 image.",
+  // }),
 });
 function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
   const initData = initObjectData?.data;
@@ -44,7 +44,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
     defaultValues: {
       billboard_banner: initData?.ImagesHomePage?.billboard_banner || "",
       billboard_feature: initData?.ImagesHomePage?.billboard_feature || [],
-      background_insurance: initData?.ImagesHomePage?.background_insurance || "",
+      // background_insurance: initData?.ImagesHomePage?.background_insurance || "",
     },
   });
   const action = initData ? "Save change" : "Create";
@@ -58,14 +58,16 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
           store_id: params.store_id as string,
           billboard_banner: data.billboard_banner,
           billboard_feature: data.billboard_feature,
-          background_insurance: data.background_insurance,
+          // background_insurance: data.background_insurance,
+          background_insurance: "none",
         });
       } else {
         await ImagesHomePageAPI.createImagesHomePage({
           store_id: params.store_id as string,
           billboard_banner: data.billboard_banner,
           billboard_feature: data.billboard_feature,
-          background_insurance: data.background_insurance,
+          // background_insurance: data.background_insurance,
+          background_insurance: "none",
         });
       }
       toast({
@@ -100,7 +102,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
             </Button>
           </div>
           <div className="border mt-10 w-[800px] mx-auto">
-            <div className="text-center border">Navbar</div>
+            <div className="text-center border py-4">Navbar</div>
             <div className="flex justify-center ">
               <FormField
                 control={form.control}
@@ -109,6 +111,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
                   <FormItem className="w-full">
                     <FormControl>
                       <ImageUpload
+                        title="Upload 3 images"
                         isLoading={isLoading}
                         // value={field.value ? field.value : []}
                         onChange={(url) => {
@@ -163,7 +166,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
                 ))}
             </div>
 
-            <FormField
+            {/* <FormField
               control={form.control}
               name="background_insurance"
               render={({ field }) => (
@@ -209,7 +212,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
               {!form.getValues("background_insurance").length && (
                 <div className="border flex justify-center items-center w-full h-[400px]"> Background insurance</div>
               )}
-            </div>
+            </div> */}
 
             <FormField
               control={form.control}

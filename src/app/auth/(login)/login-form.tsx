@@ -101,9 +101,7 @@ function LoginForm({ isSignUp, setIsSignUp }: ResgisterFormProps) {
               </FormItem>
             )}
           />
-          <div className="mt-2 text-sm sm:text-base text-blue-400 cursor-pointer underline ml-2 lg:ml-0 self-start">
-            Forgot password?{" "}
-          </div>
+          <div className="mt-2 text-sm sm:text-base text-blue-400 cursor-pointer underline ml-2 lg:ml-0 self-start"></div>
           <button
             type="submit"
             className=" hover:bg-opacity-65 py-3 font-bold bg-red-400 text-white px-12 border rounded-full mt-4"

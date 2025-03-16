@@ -87,7 +87,7 @@ const DynamicAttributesForm: React.FC = () => {
 
   return (
     <div className="p-4 max-w-xl mx-auto">
-      <h2 className="text-lg font-bold mb-3">Thêm Thuộc Tính Sản Phẩm</h2>
+      <h2 className="text-lg font-bold mb-3">Add variant for product</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         {/* THUỘC TÍNH */}
@@ -100,7 +100,7 @@ const DynamicAttributesForm: React.FC = () => {
                 className="border p-2 flex-1"
               />
               <button type="button" onClick={() => remove(attrIndex)} className="text-red-500">
-                Xóa
+                Delete
               </button>
             </div>
 
@@ -113,13 +113,13 @@ const DynamicAttributesForm: React.FC = () => {
           onClick={() => append({ name: "", values: [{ value: "" }] })}
           className="bg-green-500 text-white px-3 py-2"
         >
-          Thêm Thuộc Tính
+          Add variant
         </button>
 
         {/* DANH SÁCH BIẾN THỂ */}
         {variants.length > 0 && (
           <div className="mt-5">
-            <h2 className="text-lg font-bold">Danh Sách Biến Thể</h2>
+            <h2 className="text-lg font-bold">Variant List</h2>
             {variants.map((variant, index) => (
               <div key={variant.sku} className="flex items-center gap-2 mt-2">
                 <span className="border p-2 flex-1">{variant.sku}</span>
@@ -169,13 +169,13 @@ const ValuesInput = ({ control, attrIndex, register }: { control: any; attrIndex
             className="border p-2 flex-1"
           />
           <button type="button" className="bg-red-500 text-white px-2 py-1" onClick={() => remove(valueIndex)}>
-            Xóa
+            Delete
           </button>
         </div>
       ))}
 
       <button type="button" onClick={() => append({ value: "" })} className="bg-blue-500 text-white px-3 py-1 mt-2">
-        Thêm Giá Trị
+        Add value
       </button>
     </div>
   );
