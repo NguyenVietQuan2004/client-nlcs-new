@@ -1547,7 +1547,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
         });
       }
       // thứ tự 2 route này quan trọng
-      router.push(`/${params.storeId}/products`);
+      router.push(`/${params.store_id}/products`);
       router.refresh();
       toast({
         title: toastMessage,

@@ -29,7 +29,7 @@ function CellPriceOrder({ row }: CellPriceOrderProps) {
   const totalPrice: number = row.order_items.reduce((acc: number, productOrder: any) => {
     const price = productOrder.snapshot_price;
     const quantity = productOrder.quantity;
-    return acc + price * quantity;
+    return acc + price * quantity * ((100 - productOrder.product.sales || 0) / 100);
   }, 0);
   return (
     <div>

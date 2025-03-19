@@ -7,6 +7,7 @@ import { ProductType } from "@/Type/ProductType";
 import CellPriceOrder from "@/app/(stores)/[store_id]/orders/_table_order/cell-price-order";
 import OrderCellAction from "@/app/(stores)/[store_id]/orders/_table_order/cell-action-oder";
 import CellStatusOrder from "./cell-status-order";
+import { format } from "date-fns";
 
 interface productOrderProps {
   product_variant_id: string;
@@ -15,6 +16,10 @@ interface productOrderProps {
   product: ProductType;
 }
 
+const formatDate = (dateString: any) => {
+  if (!dateString) return "";
+  return format(new Date(dateString), "MMMM d yyyy");
+};
 export const OrderColumns: ColumnDef<OrderType>[] = [
   {
     header: "Products",
@@ -63,6 +68,18 @@ export const OrderColumns: ColumnDef<OrderType>[] = [
   {
     header: "Paid",
     cell: ({ row }) => <CellStatusOrder row={row.original} />,
+  },
+  {
+    header: "Date",
+    cell: ({ row }) => {
+      console.log(row.original);
+      return (
+        <div>
+          <div> Create At: {formatDate(row.original.createdAt)}</div>
+          {row.original.paid_at?.toString() && <div>Paid At: {formatDate(row.original.paid_at)}</div>}
+        </div>
+      );
+    },
   },
   {
     id: "actions",

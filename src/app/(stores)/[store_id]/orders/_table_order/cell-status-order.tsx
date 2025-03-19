@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { formattedPrice } from "@/lib/utils";
 import { OrderType } from "@/Type/OrderTypes";
@@ -6,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Loader2 } from "lucide-react"; // Spinner icon
 import { toast } from "@/components/ui/use-toast";
+import AlertModal from "@/components/alert-modal";
+import { useRouter } from "next/navigation";
 
 interface CellStatusOrderProps {
   row: OrderType;
@@ -15,12 +18,10 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
   const [isPaid, setIsPaid] = useState(row.is_paid);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const totalPrice: number = row.order_items.reduce((acc: number, productOrder: any) => {
-    return acc + productOrder.snapshot_price * productOrder.quantity;
-  }, 0);
-
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
   const handleStatusChange = async () => {
+    /// hỏi người dùng có chắc ko đã
     setLoading(true);
     setError(null);
     try {
@@ -41,23 +42,32 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
       });
     } finally {
       setLoading(false);
+      setOpen(false);
+      router.refresh();
     }
   };
   console.log(isPaid);
   return (
-    <div className="flex flex-col gap-2">
-      <span>{formattedPrice(totalPrice)}</span>
+    <>
+      <AlertModal
+        open={open}
+        onClose={() => setOpen(false)}
+        action="confirm"
+        variant="default"
+        onConfirm={handleStatusChange}
+        isLoading={loading}
+      />
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <Badge variant={isPaid ? "secondary" : "destructive"}>{isPaid ? "Paid" : "Unpaid"}</Badge>
+          <Button variant="outline" size="sm" onClick={() => setOpen(true)} disabled={loading}>
+            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : isPaid ? "Mark Unpaid" : "Mark Paid"}
+          </Button>
+        </div>
 
-      <div className="flex items-center gap-2">
-        <Badge variant={isPaid ? "secondary" : "destructive"}>{isPaid ? "Paid" : "Unpaid"}</Badge>
-
-        <Button variant="outline" size="sm" onClick={handleStatusChange} disabled={loading}>
-          {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : isPaid ? "Mark Unpaid" : "Mark Paid"}
-        </Button>
+        {error && <div className="text-red-500 text-sm">{error}</div>}
       </div>
-
-      {error && <div className="text-red-500 text-sm">{error}</div>}
-    </div>
+    </>
   );
 }
 
