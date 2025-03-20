@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { formattedPrice } from "@/lib/utils";
 import { OrderType } from "@/Type/OrderTypes";
 import { orderAPI } from "@/apiRequest/orderAPI";
 import { Button } from "@/components/ui/button";
@@ -28,6 +27,7 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
       const response = await orderAPI.updateStatusOrder({ order_id: row._id, is_paid: !isPaid });
       if (!response.error) {
         setIsPaid(response.data.is_paid);
+        // router.refresh();
         toast({
           title: "Update status order success",
           variant: "success",
@@ -42,7 +42,6 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
     } finally {
       setLoading(false);
       setOpen(false);
-      router.refresh();
     }
   };
   return (
