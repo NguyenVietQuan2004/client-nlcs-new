@@ -41,35 +41,19 @@ export const ProductColumns: ColumnDef<ProductType>[] = [
   {
     header: "Sold",
     cell: ({ row }) => {
-      // const totalProductSold = row.original.arrayPrice.reduce((pre: any, cur, arr) => {
-      //   return cur.amount_sold + pre;
-      // }, 0);
-      return <div>{0}</div>;
+      const product = row.original;
+      const totalSold = product.product_variants.reduce((acc: any, cur: any) => {
+        console.log(cur.sold);
+        return acc + cur.sold;
+      }, 0);
+      return <div>{totalSold}</div>;
     },
   },
   {
     header: "Sales (%)",
     accessorKey: "sales",
   },
-  // {
-  //   header: "Size",
-  //   cell: ({ row }) => {
-  //     const firstObjectPrice = (row.original.arrayPrice as Array<any>)[0];
-  //     return <div>{firstObjectPrice.size}</div>;
-  //   },
-  // },
-  // {
-  //   header: "Color",
-  //   cell: ({ row }) => {
-  //     const firstObjectPrice = (row.original.arrayPrice as Array<any>)[0];
-  //     return (
-  //       <div className="flex gap-1 items-center">
-  //         {firstObjectPrice.colors[0]}
-  //         <div style={{ backgroundColor: firstObjectPrice.colors[0] }} className={`w-4 h-4 rounded-full border `}></div>
-  //       </div>
-  //     );
-  //   },
-  // },
+
   {
     header: ({ column }) => {
       return (
