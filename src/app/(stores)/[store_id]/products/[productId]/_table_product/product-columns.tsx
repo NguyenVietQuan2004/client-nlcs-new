@@ -43,7 +43,6 @@ export const ProductColumns: ColumnDef<ProductType>[] = [
     cell: ({ row }) => {
       const product = row.original;
       const totalSold = product.product_variants.reduce((acc: any, cur: any) => {
-        console.log(cur.sold);
         return acc + cur.sold;
       }, 0);
       return <div>{totalSold}</div>;

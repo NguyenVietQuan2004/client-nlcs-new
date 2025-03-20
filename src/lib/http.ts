@@ -126,7 +126,6 @@ const ConfigHttp = async <ResType>(method: string, PassURL: string, option?: Cus
         console.log("Token het han");
         throw new Error("TokenExpiredError");
       }
-      // console.log("Token con han decode", decode);
     } catch (error: any) {
       if (error.name) {
         const refreshToken = await fetch(`${process.env.NEXT_PUBLIC_API_ADMIN}/api/auth/get-refresh-token`, {
@@ -139,7 +138,6 @@ const ConfigHttp = async <ResType>(method: string, PassURL: string, option?: Cus
           // await fetch(`${process.env.NEXT_PUBLIC_API_ADMIN}/api/auth/logout`, { method: "POST" });
           // window.location.reload();
         }
-        console.log("eo hieu sao chay vo day", PassURL);
         const responseToken = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/refresh-token`, {
           headers: {
             Authorization: `Bearer ${resJson.refreshToken}`,

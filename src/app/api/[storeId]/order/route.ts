@@ -36,8 +36,6 @@ export async function GET(req: NextRequest) {
     }
 
     const userOrder = await response.json();
-    console.log(userOrder);
-
     return NextResponse.json(userOrder, { headers: corsHeader });
   } catch (error) {
     return NextResponse.json({ error: "ROUTEHANDLER_userOrder_ERROR" }, { status: 500, headers: corsHeader });

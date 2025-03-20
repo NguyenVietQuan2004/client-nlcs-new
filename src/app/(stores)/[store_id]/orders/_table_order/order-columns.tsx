@@ -72,7 +72,7 @@ export const OrderColumns: ColumnDef<OrderType>[] = [
   {
     header: "Date",
     cell: ({ row }) => {
-      console.log(row.original);
+      row.original;
       return (
         <div>
           <div> Create At: {formatDate(row.original.createdAt)}</div>

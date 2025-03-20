@@ -26,7 +26,6 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
     setError(null);
     try {
       const response = await orderAPI.updateStatusOrder({ order_id: row._id, is_paid: !isPaid });
-      console.log(response.error);
       if (!response.error) {
         setIsPaid(response.data.is_paid);
         toast({
@@ -46,7 +45,6 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
       router.refresh();
     }
   };
-  console.log(isPaid);
   return (
     <>
       <AlertModal
