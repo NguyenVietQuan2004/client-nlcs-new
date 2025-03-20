@@ -40,7 +40,7 @@ function CategoryCellAction({ row }: CellActionProps) {
         _id: row._id,
       });
       toast({
-        title: "Delete category success.",
+        title: "Xóa danh mục thành công.",
         variant: "success",
       });
       router.refresh();
@@ -58,7 +58,7 @@ function CategoryCellAction({ row }: CellActionProps) {
   return (
     <div>
       <AlertModal
-        action="Delete"
+        action="Xóa"
         open={open}
         onClose={() => setOpen(false)}
         variant="destructive"

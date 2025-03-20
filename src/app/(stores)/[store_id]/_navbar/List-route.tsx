@@ -23,56 +23,45 @@ function ListRoute({ setIsShowModal }: { setIsShowModal?: React.Dispatch<SetStat
     {
       href: `/`,
       active: pathName === `/${params.store_id}`,
-      name: "Overview",
+      name: "Tổng quan",
       icon: <HomeIcon />,
     },
     {
       href: `/${params.store_id}/billboards`,
       active: pathName.startsWith(`/${params.store_id}/billboards`),
-      name: "Billboards",
+      name: "Bảng quảng cáo",
       icon: <BillboardIcon />,
     },
     {
       href: `/${params.store_id}/previewstore`,
       active: pathName.startsWith(`/${params.store_id}/previewstore`),
-      name: "PreviewStore",
+      name: "Ảnh trang chủ",
       icon: <BillboardIcon />,
     },
     {
       href: `/${params.store_id}/categories`,
       active: pathName.startsWith(`/${params.store_id}/categories`),
-      name: "Categories",
+      name: "Danh mục",
       icon: <CategoryIcon />,
     },
-    // {
-    //   href: `/${params.store_id}/sizes`,
-    //   active: pathName.startsWith(`/${params.store_id}/sizes`),
-    //   name: "Sizes",
-    //   icon: <SizeIcon />,
-    // },
-    // {
-    //   href: `/${params.store_id}/colors`,
-    //   active: pathName.startsWith(`/${params.store_id}/colors`),
-    //   name: "Colors",
-    //   icon: <ColorIcon />,
-    // },
+
     {
       href: `/${params.store_id}/products`,
       active: pathName.startsWith(`/${params.store_id}/products`),
-      name: "Products",
+      name: "Sản phẩm",
       icon: <ProductIcon />,
     },
     {
       href: `/${params.store_id}/orders`,
       active: pathName.startsWith(`/${params.store_id}/orders`),
-      name: "Orders",
+      name: "Đơn hàng",
       icon: <OrderIcon />,
     },
 
     {
       href: `/${params.store_id}/settings`,
       active: pathName === `/${params.store_id}/settings`,
-      name: "Settings",
+      name: "Cài đặt",
       icon: <SettingIcon />,
     },
   ];
@@ -85,7 +74,7 @@ function ListRoute({ setIsShowModal }: { setIsShowModal?: React.Dispatch<SetStat
           href={`${index === 0 ? `/${params.store_id}/${route.href}` : `${route.href}`}`}
           className={`${
             route.active ? "text-zinc-800  font-semibold" : "text-zinc-500"
-          } lg:mr-4 font-medium px-3 py-3 lg:p-0 flex items-center lg:block`}
+          } lg:mr-5 font-medium px-3 py-3 lg:p-0 flex items-center lg:block`}
         >
           <div className="lg:hidden mr-2">{route.icon}</div>
 

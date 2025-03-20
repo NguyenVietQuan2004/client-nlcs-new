@@ -61,7 +61,7 @@ function ProductCellAction({ row }: CellActionProps) {
       <AlertModal
         open={open}
         onClose={() => setOpen(false)}
-        action="Delete"
+        action="Xóa"
         variant="destructive"
         onConfirm={handleDeleteProduct}
         isLoading={isLoading}

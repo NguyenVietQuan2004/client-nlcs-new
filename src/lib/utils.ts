@@ -41,9 +41,15 @@ export const formatDefaultValue = (defaultValueList: Array<any>) => {
     return acc;
   }, {});
 };
-const formatter = new Intl.NumberFormat("en-US", {
+// const formatter = new Intl.NumberFormat("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// });
+const formatter = new Intl.NumberFormat("vi-VN", {
   style: "currency",
-  currency: "USD",
+  currency: "VND",
+  minimumFractionDigits: 0, // Không hiển thị số thập phân
+  maximumFractionDigits: 0, // Không hiển thị số thập phân
 });
 export const formattedPrice = (price: number) => {
   return formatter.format(price);

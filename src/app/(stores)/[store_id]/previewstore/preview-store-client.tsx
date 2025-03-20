@@ -47,8 +47,8 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
       // background_insurance: initData?.ImagesHomePage?.background_insurance || "",
     },
   });
-  const action = initData ? "Save change" : "Create";
-  const toastMessage = initData ? "Updated success" : "Create success";
+  const action = initData ? "Lưu thay đổi" : "Tạo mới";
+  const toastMessage = initData ? "Cập nhật thành công" : "Tạo mới thành công";
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
@@ -94,7 +94,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
       >
         <div className="">
           <div className="flex items-center border-b pb-4">
-            <Heading title="Upload" description="Upload another image for homepage" />
+            <Heading title="Đăng tải ảnh" description="Đăng ảnh cho trang chủ" />
           </div>
           <div className=" mt-8 ">
             <Button type="submit" className="min-w-[118px]" disabled={isLoading}>
@@ -102,7 +102,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
             </Button>
           </div>
           <div className="border mt-10 w-[800px] mx-auto">
-            <div className="text-center border py-4">Navbar</div>
+            <div className="text-center border py-4">Thanh điều hướng</div>
             <div className="flex justify-center ">
               <FormField
                 control={form.control}
@@ -111,7 +111,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
                   <FormItem className="w-full">
                     <FormControl>
                       <ImageUpload
-                        title="Upload 3 images"
+                        title="Upload 3 ảnh"
                         isLoading={isLoading}
                         // value={field.value ? field.value : []}
                         onChange={(url) => {
@@ -226,7 +226,7 @@ function PreviewStoreClient({ initObjectData }: PreviewStoreClientProps) {
                       value={field.value ? [field.value] : []}
                       onChange={(url) => field.onChange(url)}
                       onRemove={() => field.onChange("")}
-                      title="Upload your billboard BST "
+                      title="Upload bảng quảng cáo bộ sưu tập "
                     >
                       {field.value && (
                         <div className="relative border w-full flex justify-center items-center ">

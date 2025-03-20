@@ -70,7 +70,7 @@ function UserAvatar() {
           })}
           onClick={handleLogOut}
         >
-          Sign out
+          Đăng xuất
         </Button>
       </PopoverContent>
     </Popover>

@@ -44,13 +44,13 @@ function DashboardClient({
   }
   return (
     <div>
-      <Heading title="Dashboard" description="Overview of your store" />
+      <Heading title="Tổng quan" description="Tổng quan về cửa hàng của bạn" />
       <div className="pt-4 border-b"></div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-4 ">
         <Card className="flex justify-between items-start p-6">
           <div>
             <CardHeader className="p-0">
-              <CardTitle className="text-sm font-medium">Total revenue</CardTitle>
+              <CardTitle className="text-sm font-medium">Tổng doanh thu</CardTitle>
             </CardHeader>
             <CardContent className="font-semibold text-lg p-0 pt-2">${revenue}</CardContent>
           </div>
@@ -61,7 +61,7 @@ function DashboardClient({
         <Card className="flex justify-between items-start p-6">
           <div>
             <CardHeader className="p-0">
-              <CardTitle className="text-sm font-medium">Saless</CardTitle>
+              <CardTitle className="text-sm font-medium">Giảm giá</CardTitle>
             </CardHeader>
             <CardContent className="font-semibold text-lg p-0 pt-2">+{saless}</CardContent>
           </div>
@@ -72,7 +72,7 @@ function DashboardClient({
         <Card className="flex justify-between items-start p-6">
           <div>
             <CardHeader className="p-0">
-              <CardTitle className="text-sm font-medium">Product in stock</CardTitle>
+              <CardTitle className="text-sm font-medium">Sản phẩm còn lại</CardTitle>
             </CardHeader>
             <CardContent className="font-semibold text-lg p-0 pt-2">{numberProductsInStock}</CardContent>
           </div>
@@ -85,7 +85,7 @@ function DashboardClient({
         {/* <Card className=" justify-between items-start flex-col p-6 mt-6 lg:flex hidden "> */}
 
         <CardHeader className="p-0">
-          <CardTitle className="text-sm font-semibold pl-6 pt-6 lg:pt-0 lg:pl-0 pb-8 ">Overview</CardTitle>
+          <CardTitle className="text-sm font-semibold pl-6 pt-6 lg:pt-0 lg:pl-0 pb-8 ">Tổng quan</CardTitle>
         </CardHeader>
         <CardContent className="font-semibold text-lg p-0 pt-2 w-full">
           <ResponsiveContainer width={"100%"} height={350}>

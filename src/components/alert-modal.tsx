@@ -26,11 +26,11 @@ function AlertModal({ variant, action, onConfirm, isLoading, open, onClose }: Al
       <AlertDialogTrigger className="hidden"></AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-          <AlertDialogDescription>This action cannot be undone</AlertDialogDescription>
+          <AlertDialogTitle>Bạn có chắc không?</AlertDialogTitle>
+          <AlertDialogDescription>Hành động này không thể hoàn tác</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel onClick={onClose}>Cancel</AlertDialogCancel>
+          <AlertDialogCancel onClick={onClose}>Hủy</AlertDialogCancel>
           <AlertDialogAction
             className={buttonVariants({
               variant: variant || "default",

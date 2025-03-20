@@ -33,7 +33,7 @@ function OrderCellAction({ row }: CellActionProps) {
         order_id: row._id,
       });
       toast({
-        title: "Delete order success.",
+        title: "Xóa đơn hàng thành công.",
         variant: "success",
       });
       router.refresh();
@@ -50,7 +50,7 @@ function OrderCellAction({ row }: CellActionProps) {
       <AlertModal
         open={open}
         onClose={() => setOpen(false)}
-        action="Delete"
+        action="Xóa"
         variant="destructive"
         onConfirm={handleDeleteOrder}
         isLoading={isLoading}

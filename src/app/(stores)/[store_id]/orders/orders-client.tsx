@@ -14,7 +14,7 @@ function OrdersClient({ listObjectOrder }: OrdersClientProps) {
   return (
     <div>
       <div className="flex items-center border-b pb-4">
-        <Heading title={`Orders( ${listOrder?.length})`} description="Manage orders for your store" />
+        <Heading title={`Đơn hàng( ${listOrder?.length})`} description="Quản lý tùy chỉnh đơn hàng" />
       </div>
       {listOrder && (
         <div className="lg:container mx-auto py-10">

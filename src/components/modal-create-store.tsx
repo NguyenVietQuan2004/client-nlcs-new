@@ -28,7 +28,7 @@ interface ModalCreateStoreProps {
 }
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Name must be contain at least 1 character",
+    message: "Tên phải chứa ít nhất 1 ký tự",
   }),
 });
 
@@ -52,7 +52,7 @@ function ModalCreateStore({ autoShow }: ModalCreateStoreProps) {
     try {
       const result = await storeAPI.createStore(data);
       toast({
-        title: "Create store success.",
+        title: "Tạo cửa hàng thành công.",
         variant: "success",
       });
       setIsShowModalCreate(false);
@@ -82,15 +82,15 @@ function ModalCreateStore({ autoShow }: ModalCreateStoreProps) {
               }}
             >
               <PlusCircleIcon className="h-4 w-4 mr-2" />
-              <div className="font-medium ">Create store</div>
+              <div className="font-medium ">Thêm mới cửa hàng</div>
               <div className="ml-auto"></div>
             </Button>
           )}
         </DialogTrigger>
         <DialogContent setIsShowModal={setIsShowModalCreate}>
           <DialogHeader>
-            <DialogTitle>Create store</DialogTitle>
-            <DialogDescription>Add a new store to manage products and categories</DialogDescription>
+            <DialogTitle>Thêm mới cửa hàng</DialogTitle>
+            <DialogDescription>Thêm mới cửa hàng để quản lí danh mục và sản phẩm của bạn</DialogDescription>
           </DialogHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -118,10 +118,10 @@ function ModalCreateStore({ autoShow }: ModalCreateStoreProps) {
                     setIsShowModalCreate(false);
                   }}
                 >
-                  cancel
+                  Hủy
                 </Button>
                 <Button type="submit" className="min-w-[93px]" disabled={isLoading}>
-                  {isLoading ? <LoadingButton /> : "Continue"}
+                  {isLoading ? <LoadingButton /> : "Tiếp tục"}
                 </Button>
               </div>
             </form>

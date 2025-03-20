@@ -20,7 +20,6 @@ async function MainNavbar() {
   }
   if (stores?.data.length === 0 || !stores) {
     redirect("/");
-    // return <div>no store loading redirect main page...</div>;
   }
   return (
     <div className="p-4 border-b  items-center flex justify-between">

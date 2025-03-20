@@ -22,7 +22,7 @@ const formatDate = (dateString: any) => {
 };
 export const OrderColumns: ColumnDef<OrderType>[] = [
   {
-    header: "Products",
+    header: "Sản phẩm",
     accessorKey: "order_items",
     cell: ({ row }) => {
       return row.original.order_items?.map((productOrder: productOrderProps) => {
@@ -33,7 +33,7 @@ export const OrderColumns: ColumnDef<OrderType>[] = [
         return (
           <div key={`${product._id}${product_variant_user_select?._id}`}>
             <div>
-              <span className="font-semibold">Name:</span> {product?.name}
+              <span className="font-semibold">Tên:</span> {product?.name}
             </div>
             <div className="flex items-center gap-x-3">
               {Object.entries(product_variant_user_select?.variant_values || {}).map(([key, value]) => (
@@ -41,7 +41,7 @@ export const OrderColumns: ColumnDef<OrderType>[] = [
                   <strong>{key}:</strong> {value}
                 </div>
               ))}
-              Quantity: {productOrder.quantity}
+              Số lượng: {productOrder.quantity}
             </div>
           </div>
         );
@@ -50,23 +50,23 @@ export const OrderColumns: ColumnDef<OrderType>[] = [
     },
   },
   {
-    header: "Customer",
+    header: "Khách hàng",
     accessorKey: "user",
   },
   {
-    header: "Phone",
+    header: "Số điện thoại",
     accessorKey: "phone",
   },
   {
-    header: "Address",
+    header: "Địa chỉ",
     accessorKey: "address",
   },
   {
-    header: "Total price",
+    header: "Tổng giá",
     cell: ({ row }) => <CellPriceOrder row={row.original} />,
   },
   {
-    header: "Paid",
+    header: "Thanh toán",
     cell: ({ row }) => <CellStatusOrder row={row.original} />,
   },
   {

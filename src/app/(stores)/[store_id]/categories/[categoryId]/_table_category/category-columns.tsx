@@ -11,7 +11,7 @@ import CategoryCellAction from "@/app/(stores)/[store_id]/categories/[categoryId
 
 export const CategoryColumns: ColumnDef<CategoryType>[] = [
   {
-    header: "Name",
+    header: "Tên sản phẩm",
     accessorKey: "name",
   },
   // {

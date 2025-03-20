@@ -10,7 +10,7 @@ import BillboardCellAction from "@/app/(stores)/[store_id]/billboards/[billboard
 
 export const BillboardColumns: ColumnDef<BillboardType>[] = [
   {
-    header: "Label",
+    header: "Nhãn",
     accessorKey: "label",
   },
   {

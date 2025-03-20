@@ -28,11 +28,11 @@ const Footer = () => {
                 </div>
 
                 <div className="text-center relative mx-auto max-w-sm">
-                  <h3 className="font-semibold text-gray-900">Ecommerce CMS</h3>
+                  <h3 className="font-semibold text-gray-900">Hệ thống quản lý thương mại điện tử</h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    If you&apos;d like to create high-quality digital products, you can do so in minutes.{" "}
+                    Nếu bạn muốn tạo ra các sản phẩm kỹ thuật số chất lượng cao, bạn có thể làm điều đó trong vài phút.{" "}
                     <Link href="#" className="whitespace-nowrap font-medium text-black hover:text-zinc-900">
-                      Get started &rarr;
+                      Bắt đầu ngay &rarr;
                     </Link>
                   </p>
                 </div>
@@ -43,20 +43,20 @@ const Footer = () => {
 
         <div className="py-10 md:flex md:items-center md:justify-between">
           <div className="text-center md:text-left">
-            <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} All Rights Reserved</p>
+            <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Tất Cả Quyền Được Bảo Lưu</p>
           </div>
 
           <div className="mt-4 flex items-center justify-center md:mt-0">
             <div className="flex space-x-8">
               <div className="text-sm text-muted-foreground hover:text-gray-600">Hotline: 0763948610</div>
               <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600">
-                Terms
+                Điều Khoản
               </Link>
               <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600">
-                Privacy Policy
+                Chính Sách Bảo Mật
               </Link>
               <Link href="#" className="text-sm text-muted-foreground hover:text-gray-600">
-                Cookie Policy
+                Chính Sách Cookie
               </Link>
             </div>
           </div>

@@ -41,7 +41,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
   const params = useParams();
   const formSchema = z.object({
     name: z.string().min(1, {
-      message: "Name must be contain at least 1 character",
+      message: "Tên phải chứa ít nhất 1 ký tự",
     }),
     images: z.array(z.string()).min(1, {
       message: "Images must be contain at least 1 picture.",
@@ -73,8 +73,6 @@ function ProductForm({ initObjectData }: ProductFormProps) {
 
   const formatData = (data: z.infer<typeof formSchema>) => {
     // Bước 1: Format variants (danh sách thuộc tính)
-    const newVariants = data.variants;
-    const oldVariants = initData?.product_variants;
 
     const formattedVariants = data.attributes
       .map((attr) => ({
@@ -197,17 +195,18 @@ function ProductForm({ initObjectData }: ProductFormProps) {
       handlError({ consoleError: "UPDATE_CREATE_ERROR", error: error, isToast: true });
     }
   };
-  const action = initData ? "Save change" : "Create";
-  const title = initData ? "Edit product" : "Create product";
-  const toastMessage = initData ? "Updated success" : "Create success";
-  const description = initData ? "Change your product" : "Add a new product";
+  const action = initData ? "Lưu thay đổi" : "Tạo mới";
+  const title = initData ? "Chỉnh sửa sản phẩm" : "Tạo sản phẩm";
+  const toastMessage = initData ? "Cập nhật thành công" : "Tạo mới thành công";
+  const description = initData ? "Thay đổi sản phẩm của bạn" : "Thêm sản phẩm mới";
+
   return (
     <>
       <>
         <AlertModal
           open={open}
           onClose={() => setOpen(false)}
-          action="Delete"
+          action="Xóa"
           variant="destructive"
           onConfirm={handleDeleteProduct}
           isLoading={isLoading}
@@ -242,7 +241,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
             name="images"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-semibold">Images</FormLabel>
+                <FormLabel className="font-semibold">Ảnh</FormLabel>
                 <FormControl>
                   <ImageUpload
                     isLoading={isLoading}
@@ -272,7 +271,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-semibold">Name</FormLabel>
+                  <FormLabel className="font-semibold">Tên sản phẩm</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Name"
@@ -291,7 +290,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
               name="category_id"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-semibold">Category</FormLabel>
+                  <FormLabel className="font-semibold">Danh mục</FormLabel>
                   <FormControl>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
@@ -317,7 +316,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
               name="sales"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="font-semibold">Sales</FormLabel>
+                  <FormLabel className="font-semibold">Giảm giá</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Sales percent"
@@ -342,8 +341,8 @@ function ProductForm({ initObjectData }: ProductFormProps) {
                     <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel className="font-semibold">Featured</FormLabel>
-                    <FormDescription>This product will appear in the home page.</FormDescription>
+                    <FormLabel className="font-semibold">Nổi bật</FormLabel>
+                    <FormDescription>Sản phẩm này sẽ xuất hiện trên trang chủ.</FormDescription>
                   </div>
                 </FormItem>
               )}
@@ -357,8 +356,8 @@ function ProductForm({ initObjectData }: ProductFormProps) {
                     <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel className="font-semibold">Archived</FormLabel>
-                    <FormDescription>This product will not appear any where in store.</FormDescription>
+                    <FormLabel className="font-semibold">Lưu trữ</FormLabel>
+                    <FormDescription>Sản phẩm này sẽ không xuất hiện ở bất kỳ đâu trong cửa hàng.</FormDescription>
                   </div>
                 </FormItem>
               )}
@@ -385,7 +384,7 @@ function ProductForm({ initObjectData }: ProductFormProps) {
                 />
 
                 <button type="button" onClick={() => remove(attrIndex)} className="text-red-500 px-10 hover:opacity-30">
-                  Delete
+                  Xóa
                 </button>
               </div>
 
@@ -398,13 +397,13 @@ function ProductForm({ initObjectData }: ProductFormProps) {
             onClick={() => append({ name: "", values: [""] })}
             className="bg-green-500 text-white px-3 py-2 hover:opacity-40"
           >
-            Add variant
+            Thêm biến thể
           </button>
 
           {/* DANH SÁCH BIẾN THỂ */}
           {variants.length > 0 && (
             <div className="mt-5">
-              <h2 className="text-lg font-bold">Product Variant List</h2>
+              <h2 className="text-lg font-bold">Danh sách biến thể</h2>
               {variants?.map((variant, index) => {
                 return (
                   <div key={variant.id} className="flex items-center gap-2 mt-2">
@@ -479,7 +478,7 @@ const ValuesInput = ({ control, attrIndex, initData }: { control: any; attrIndex
               className="bg-red-500 hover:opacity-40 text-white px-2 py-1"
               onClick={() => remove(valueIndex)}
             >
-              Delete
+              Xóa
             </button>
           </div>
         );
@@ -490,7 +489,7 @@ const ValuesInput = ({ control, attrIndex, initData }: { control: any; attrIndex
         onClick={() => append("")}
         className="bg-blue-500 hover:opacity-40  text-white px-3 py-1 mt-2"
       >
-        Add value
+        Thêm giá trị
       </button>
     </div>
   );

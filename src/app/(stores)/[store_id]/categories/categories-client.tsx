@@ -21,14 +21,14 @@ function CategoriesClient({ listObjectCategory }: CategoriesClientProps) {
   return (
     <div>
       <div className="flex items-center border-b pb-4">
-        <Heading title={`Categories( ${listCategory?.length})`} description="Manage Category for your store" />
+        <Heading title={`Danh mục( ${listCategory?.length})`} description="Quản lý tùy chỉnh danh mục" />
         <Button
           className={buttonVariants({
             className: "ml-auto",
           })}
           onClick={() => router.push(`/${params.store_id}/categories/new`)}
         >
-          <PlusIcon className="w-5 h-5" /> Add item
+          <PlusIcon className="w-5 h-5" /> Thêm mới
         </Button>
       </div>
       {listCategory && (

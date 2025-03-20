@@ -106,10 +106,10 @@ function LoginForm({ isSignUp, setIsSignUp }: ResgisterFormProps) {
             type="submit"
             className=" hover:bg-opacity-65 py-3 font-bold bg-red-400 text-white px-12 border rounded-full mt-4"
           >
-            Sign in
+            Đăng nhập
           </button>
           <div className={`block lg:hidden mt-4 text-sm sm:text-base ml-2 lg:ml-0 self-start`}>
-            You don't have an account?{" "}
+            Bạn chưa có tài khoản?{" "}
             <span
               className="text-sm sm:text-base text-blue-400 cursor-pointer underline"
               onClick={() => {
@@ -117,7 +117,7 @@ function LoginForm({ isSignUp, setIsSignUp }: ResgisterFormProps) {
                 form.reset();
               }}
             >
-              Create account
+              Tạo tài khoản
             </span>
           </div>
         </form>

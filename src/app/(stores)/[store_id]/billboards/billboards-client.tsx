@@ -22,14 +22,14 @@ function BillboardsClient({ listObjectBillboard }: BillboardsClientProps) {
   return (
     <div>
       <div className="flex items-center border-b pb-4">
-        <Heading title={`Billboards( ${listBillboard?.length})`} description="Manage billboards for your store" />
+        <Heading title={`Bảng quảng cáo( ${listBillboard?.length})`} description="Quản lý tùy chỉnh bảng quảng cáo" />
         <Button
           className={buttonVariants({
             className: "ml-auto ",
           })}
           onClick={() => router.push(`/${params.store_id}/billboards/new`)}
         >
-          <PlusIcon className="w-5 h-5" /> Add item
+          <PlusIcon className="w-5 h-5" /> Thêm mới
         </Button>
       </div>
       {listBillboard && (
@@ -38,7 +38,7 @@ function BillboardsClient({ listObjectBillboard }: BillboardsClientProps) {
         </div>
       )}
       <div className="border-b pb-4 border-[rgb(228, 228, 231)]">
-        <Heading title={`API`} description="API call for billboards" />
+        <Heading title={`API`} description="API gọi cho bảng quảng cáo" />
       </div>
       <ApiList entityName="billboards" entityIdName="billboardId" />
     </div>

@@ -56,12 +56,12 @@ function DropDownStore({ listStore: listStoreInit }: DropDownStoreProps) {
           <Input
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Search more..."
+            placeholder="Tìm kiếm..."
             className="border-none pl-2 !ring-0  !ring-offset-0 !outline-none"
           />
         </div>
         <div className="flex flex-col ">
-          <div className="pl-2 mt-2 font-medium text-sm">Stores</div>
+          <div className="pl-2 mt-2 font-medium text-sm">Cửa hàng</div>
           <ul className="max-h-[160px] overflow-y-auto">
             {listStore?.map((item) => (
               <li key={item._id}>
@@ -82,7 +82,7 @@ function DropDownStore({ listStore: listStoreInit }: DropDownStoreProps) {
                 </Button>
               </li>
             ))}
-            {listStore?.length === 0 && <div className="text-center my-2 text-sm">No store...</div>}
+            {listStore?.length === 0 && <div className="text-center my-2 text-sm">Không có cửa hàng...</div>}
           </ul>
           <ModalCreateStore />
         </div>

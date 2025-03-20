@@ -40,7 +40,7 @@ function BillboardCellAction({ row }: CellActionProps) {
         _id: row._id,
       });
       toast({
-        title: "Delete billboard success.",
+        title: "Zóa bảng quảng cáo thành công.",
         variant: "success",
       });
       router.refresh();
@@ -57,7 +57,7 @@ function BillboardCellAction({ row }: CellActionProps) {
       <AlertModal
         open={open}
         onClose={() => setOpen(false)}
-        action="Delete"
+        action="Xóa"
         variant="destructive"
         onConfirm={handleDeleteBillboard}
         isLoading={isLoading}
@@ -65,15 +65,15 @@ function BillboardCellAction({ row }: CellActionProps) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="h-8 w-8 p-0">
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">Mở menu</span>
             <MoreHorizontal className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onClick={onCopy}>Copy ID</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => router.push(`billboards/${row._id}`)}>Update</DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setOpen(true)}>Delete</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => router.push(`billboards/${row._id}`)}>Cập nhật</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setOpen(true)}>Xóa</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

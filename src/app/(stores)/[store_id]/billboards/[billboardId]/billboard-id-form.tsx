@@ -25,7 +25,7 @@ interface BillboardFormProps {
 // không tạo type riêng vì đang sử dụng  cả update và create chung 1 component
 const formSchema = z.object({
   label: z.string().min(1, {
-    message: "Name must be contain at least 1 character",
+    message: "Tên phải chứa ít nhất 1 ký tự",
   }),
   image: z.string().min(1, { message: "Image cannot be emty" }),
 });
@@ -38,10 +38,10 @@ function BillboardForm({ initObjectData }: BillboardFormProps) {
   const [open, setOpen] = useState(false);
 
   // check xem đang muốn update hay create dựa vào có truyền data đầu vào không
-  const action = initData ? "Save change" : "Create";
-  const title = initData ? "Edit billboard" : "Create billboard";
-  const description = initData ? "Change your billboard" : "Add a new billboard";
-  const toastMessage = initData ? "Updated success" : "Create success";
+  const action = initData ? "Lưu thay đổi" : "Tạo mới";
+  const title = initData ? "Chỉnh sửa bảng quảng cáo" : "Tạo bảng quảng cáo";
+  const description = initData ? "Thay đổi bảng quảng cáo của bạn" : "Thêm bảng quảng cáo mới";
+  const toastMessage = initData ? "Cập nhật thành công" : "Tạo mới thành công";
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -97,7 +97,7 @@ function BillboardForm({ initObjectData }: BillboardFormProps) {
         _id: params.billboardId as string,
       });
       toast({
-        title: "Delete billboard success.",
+        title: "Xóa bảng quảng cáo thành công.",
         variant: "success",
       });
       // thứ tự 2 route này quan trọng
@@ -121,7 +121,7 @@ function BillboardForm({ initObjectData }: BillboardFormProps) {
         <AlertModal
           open={open}
           onClose={() => setOpen(false)}
-          action="Delete"
+          action="Xóa"
           variant="destructive"
           onConfirm={handleDeleteBillboard}
           isLoading={isLoading}
@@ -156,7 +156,7 @@ function BillboardForm({ initObjectData }: BillboardFormProps) {
             name="image"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-semibold">Background Image</FormLabel>
+                <FormLabel className="font-semibold">Ảnh quảng cáo</FormLabel>
                 <FormControl>
                   <ImageUpload
                     isLoading={isLoading}
@@ -174,9 +174,9 @@ function BillboardForm({ initObjectData }: BillboardFormProps) {
             name="label"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-semibold">Label</FormLabel>
+                <FormLabel className="font-semibold">Nhãn</FormLabel>
                 <FormControl>
-                  <Input placeholder="Billboard label" {...field} className="select-none" disabled={isLoading} />
+                  <Input placeholder="Nhãn" {...field} className="select-none" disabled={isLoading} />
                 </FormControl>
                 <FormMessage className="text-sm" />
               </FormItem>

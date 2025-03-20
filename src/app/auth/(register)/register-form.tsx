@@ -19,7 +19,7 @@ interface ResgisterFormProps {
 }
 const formSchema = z.object({
   fullname: z.string().min(4, {
-    message: "Name must be at least 4 characters.",
+    message: "Tên phải chứa ít nhất 1 ký tự",
   }),
   email: z.string().email(),
   password: z.string().min(6, {
@@ -51,7 +51,7 @@ function RegisterForm({ isSignUp, setIsSignUp }: ResgisterFormProps) {
       form.reset();
       setIsSignUp(false);
       toast({
-        title: "Register success.",
+        title: "Đăng ký thành công.",
         variant: "success",
       });
     } catch (error) {

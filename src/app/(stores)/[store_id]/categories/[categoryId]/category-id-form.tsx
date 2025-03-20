@@ -110,7 +110,7 @@
 //     <>
 //       <>
 //         <AlertModal
-//           action="Delete"
+//           action="Xóa"
 //           variant="destructive"
 //           open={open}
 //           onClose={() => setOpen(false)}
@@ -213,7 +213,7 @@ interface CategoryFormProps {
 }
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Name must be contain at least 1 character",
+    message: "Tên phải chứa ít nhất 1 ký tự",
   }),
 });
 
@@ -223,10 +223,11 @@ function CategoryForm({ initObjectData }: CategoryFormProps) {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
-  const action = initData ? "Save change" : "Create";
-  const title = initData ? "Edit category" : "Create category";
-  const description = initData ? "Change your category" : "Add a new category";
-  const toastMessage = initData ? "Updated success" : "Create success";
+  const action = initData ? "Lưu thay đổi" : "Tạo mới";
+  const title = initData ? "Chỉnh sửa danh mục" : "Tạo danh mục";
+  const description = initData ? "Thay đổi danh mục của bạn" : "Thêm danh mục mới";
+  const toastMessage = initData ? "Cập nhật thành công" : "Tạo mới thành công";
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -275,7 +276,7 @@ function CategoryForm({ initObjectData }: CategoryFormProps) {
         _id: params.categoryId as string,
       });
       toast({
-        title: "Delete category success.",
+        title: "Delete xóa danh mục thành công.",
         variant: "success",
       });
       // thứ tự 2 route này quan trọng
@@ -297,7 +298,7 @@ function CategoryForm({ initObjectData }: CategoryFormProps) {
     <>
       <>
         <AlertModal
-          action="Delete"
+          action="Xóa"
           variant="destructive"
           open={open}
           onClose={() => setOpen(false)}
@@ -328,9 +329,9 @@ function CategoryForm({ initObjectData }: CategoryFormProps) {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-semibold">Label</FormLabel>
+                <FormLabel className="font-semibold">Tên</FormLabel>
                 <FormControl>
-                  <Input placeholder="Category name" {...field} className="select-none" disabled={isLoading} />
+                  <Input placeholder="Tên danh mục" {...field} className="select-none" disabled={isLoading} />
                 </FormControl>
                 <FormMessage className="text-sm" />
               </FormItem>

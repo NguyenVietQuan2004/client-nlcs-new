@@ -69,7 +69,7 @@ export default function ImageUpload({ value, isLoading, onChange, onRemove, titl
               ) : (
                 <>
                   <File className="h-4 w-4 mr-2 " />
-                  {title || " Upload an image"}
+                  {title || " Upload 1 ảnh"}
                 </>
               )}
             </Button>

@@ -23,7 +23,7 @@ interface SettingFormProps {
 }
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Name must be contain at least 1 character",
+    message: "Tên phải chứa ít nhất 1 ký tự",
   }),
 });
 
@@ -49,7 +49,7 @@ function SettingForm({ initData }: SettingFormProps) {
       await storeAPI.updateStore({ _id: initData.data._id, name: data.name });
       router.refresh();
       toast({
-        title: "Store updated.",
+        title: "Cập nhật thành công.",
         variant: "success",
       });
     } catch (error) {
@@ -63,7 +63,7 @@ function SettingForm({ initData }: SettingFormProps) {
       setIsLoading(true);
       await storeAPI.deleteStore({ _id: initData.data._id });
       toast({
-        title: "Delete store success.",
+        title: "Xóa cửa hàng thành công.",
         variant: "success",
       });
       router.refresh();
@@ -84,13 +84,13 @@ function SettingForm({ initData }: SettingFormProps) {
       <AlertModal
         open={open}
         onClose={() => setOpen(false)}
-        action="Delete"
+        action="Xóa"
         variant="destructive"
         onConfirm={handleDeleteStore}
         isLoading={isLoading}
       />
       <div className="flex items-center border-b pb-4">
-        <Heading title="Setting" description="Manage store preferences" />
+        <Heading title="Cài đặt" description="Quản lý tùy chỉnh cửa hàng" />
         <Button
           className={buttonVariants({
             className: "!p-3 ml-auto",

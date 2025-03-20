@@ -11,20 +11,20 @@ import ProductCellAction from "@/app/(stores)/[store_id]/products/[productId]/_t
 // export const ProductColumns: ColumnDef<ProductType>[] = [
 export const ProductColumns: ColumnDef<ProductType>[] = [
   {
-    header: "Name",
+    header: "Tên",
     accessorKey: "name",
   },
   {
-    header: "Archived",
+    header: "Lưu trữ",
     accessorKey: "is_archived",
   },
   {
-    header: "Featured",
+    header: "Nổi bật",
     accessorKey: "is_featured",
   },
 
   {
-    header: "Category",
+    header: "Danh mục",
     accessorKey: "category",
     cell: ({ row }) => {
       const category: any = row.getValue("category");
@@ -32,14 +32,14 @@ export const ProductColumns: ColumnDef<ProductType>[] = [
     },
   },
   {
-    header: "Price",
+    header: "Giá",
     cell: ({ row }) => {
       const price = row.original.product_variants[0]?.price;
       return <div>{price}</div>;
     },
   },
   {
-    header: "Sold",
+    header: "Đã bán",
     cell: ({ row }) => {
       const product = row.original;
       const totalSold = product.product_variants.reduce((acc: any, cur: any) => {
@@ -49,7 +49,7 @@ export const ProductColumns: ColumnDef<ProductType>[] = [
     },
   },
   {
-    header: "Sales (%)",
+    header: "Giảm giá (%)",
     accessorKey: "sales",
   },
 

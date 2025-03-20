@@ -169,13 +169,13 @@ const ValuesInput = ({ control, attrIndex, register }: { control: any; attrIndex
             className="border p-2 flex-1"
           />
           <button type="button" className="bg-red-500 text-white px-2 py-1" onClick={() => remove(valueIndex)}>
-            Delete
+            Xóa
           </button>
         </div>
       ))}
 
       <button type="button" onClick={() => append({ value: "" })} className="bg-blue-500 text-white px-3 py-1 mt-2">
-        Add value
+        Thêm giá trị
       </button>
     </div>
   );

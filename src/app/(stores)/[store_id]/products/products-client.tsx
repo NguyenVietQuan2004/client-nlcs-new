@@ -21,14 +21,14 @@ function ProductsClient({ listObjectProduct }: ProductsClientProps) {
   return (
     <div>
       <div className="flex items-center border-b pb-4">
-        <Heading title={`Products( ${listProduct?.length})`} description="Manage products for your store" />
+        <Heading title={`Sản phẩm( ${listProduct?.length})`} description="Quản lý tùy chỉnh sản phẩm" />
         <Button
           className={buttonVariants({
             className: "ml-auto",
           })}
           onClick={() => router.push(`/${params.store_id}/products/new`)}
         >
-          <PlusIcon className="w-5 h-5" /> Add item
+          <PlusIcon className="w-5 h-5" /> Thêm mới
         </Button>
       </div>
       {listProduct && (
@@ -37,7 +37,7 @@ function ProductsClient({ listObjectProduct }: ProductsClientProps) {
         </div>
       )}
       <div className="border-b pb-4 border-[rgb(228, 228, 231)]">
-        <Heading title={`API`} description="API call for billboards" />
+        <Heading title={`API`} description="API gọi cho sản phẩm" />
       </div>
       <ApiList entityName="products" entityIdName="productId" />
     </div>

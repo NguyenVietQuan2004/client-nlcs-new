@@ -29,14 +29,14 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
         setIsPaid(response.data.is_paid);
         // router.refresh();
         toast({
-          title: "Update status order success",
+          title: "Cập nhật trạng thái đơn hàng thành công",
           variant: "success",
         });
       }
     } catch (err) {
       setError("Failed to update status");
       toast({
-        title: "Failed to update status",
+        title: "Cập nhật trạng thái đơn hàng thất bại",
         variant: "destructive",
       });
     } finally {
@@ -49,7 +49,7 @@ function CellStatusOrder({ row }: CellStatusOrderProps) {
       <AlertModal
         open={open}
         onClose={() => setOpen(false)}
-        action="confirm"
+        action="Xác nhận"
         variant="default"
         onConfirm={handleStatusChange}
         isLoading={loading}
