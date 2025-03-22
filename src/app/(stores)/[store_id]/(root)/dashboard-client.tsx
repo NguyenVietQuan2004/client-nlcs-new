@@ -7,6 +7,7 @@ import Heading from "@/components/heading";
 import { OrderType } from "@/Type/OrderTypes";
 import { ProductType } from "@/Type/ProductType";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { formattedPrice } from "@/lib/utils";
 function DashboardClient({
   dataOverview,
 }: {
@@ -52,7 +53,7 @@ function DashboardClient({
             <CardHeader className="p-0">
               <CardTitle className="text-sm font-medium">Tổng doanh thu</CardTitle>
             </CardHeader>
-            <CardContent className="font-semibold text-lg p-0 pt-2">${revenue}</CardContent>
+            <CardContent className="font-semibold text-lg p-0 pt-2">{formattedPrice(revenue)}</CardContent>
           </div>
           <div>
             <DollarSign className="w-4 h-4 text-muted-foreground" />

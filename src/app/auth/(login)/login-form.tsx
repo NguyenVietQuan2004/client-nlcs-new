@@ -122,15 +122,7 @@ function LoginForm({ isSignUp, setIsSignUp }: ResgisterFormProps) {
           </div>
         </form>
       </Form>
-      <div className={`h-16 w-16 mx-auto mt-4 flex justify-center items-center lg:mt-2`}>
-        <Image
-          alt=""
-          width={200}
-          height={200}
-          className="w-8"
-          src={"https://res.cloudinary.com/dvyi5jxrm/image/upload/v1725116961/t2vvfvzknla0aw6oiagn.png"}
-        />
-      </div>
+      <div className={`h-16 w-16 mx-auto mt-4 flex justify-center items-center lg:mt-2`}></div>
     </div>
   );
 }

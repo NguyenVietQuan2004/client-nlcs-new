@@ -48,11 +48,10 @@ export const formatDefaultValue = (defaultValueList: Array<any>) => {
 const formatter = new Intl.NumberFormat("vi-VN", {
   style: "currency",
   currency: "VND",
-  minimumFractionDigits: 0, // Không hiển thị số thập phân
-  maximumFractionDigits: 0, // Không hiển thị số thập phân
 });
 export const formattedPrice = (price: number) => {
-  return formatter.format(price);
+  const roundedPrice = Math.round(price / 1000) * 1000; // Làm tròn đến hàng nghìn
+  return formatter.format(roundedPrice);
 };
 
 export const formatDateTime = (dateString: string) => {
